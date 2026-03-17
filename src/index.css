@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-foreground: #e0e0e0;
+  --color-card-bg: #111111;
+  --color-card-border: #1a1a2e;
+  --color-neon-blue: #00bfff;
+  --color-neon-pink: #ff69b4;
+  --color-neon-orange: #ff8c00;
+  --color-muted: #6b7280;
+  --color-muted-foreground: #9ca3af;
+
+  --font-pixel: "Press Start 2P", monospace;
+  --font-body: "Inter", sans-serif;
+
+  --shadow-neon-blue: 0 0 8px #00bfff, 0 0 20px rgba(0, 191, 255, 0.33);
+  --shadow-neon-pink: 0 0 8px #ff69b4, 0 0 20px rgba(255, 105, 180, 0.33);
+  --shadow-neon-orange: 0 0 8px #ff8c00, 0 0 20px rgba(255, 140, 0, 0.33);
+}
+
+/* shadcn CSS variables */
+:root {
+  --radius: 0.5rem;
+  --background: #0a0a0a;
+  --foreground: #e0e0e0;
+  --card: #111111;
+  --card-foreground: #e0e0e0;
+  --popover: #111111;
+  --popover-foreground: #e0e0e0;
+  --primary: #00bfff;
+  --primary-foreground: #0a0a0a;
+  --secondary: #1a1a2e;
+  --secondary-foreground: #e0e0e0;
+  --muted: #1a1a2e;
+  --muted-foreground: #9ca3af;
+  --accent: #1a1a2e;
+  --accent-foreground: #e0e0e0;
+  --destructive: #ef4444;
+  --border: #1a1a2e;
+  --input: #1a1a2e;
+  --ring: #00bfff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a2e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a4e;
+}
+
+/* Neon glow text utilities */
+@layer utilities {
+  .glow-blue {
+    text-shadow: 0 0 8px #00bfff, 0 0 20px rgba(0, 191, 255, 0.33);
+  }
+  .glow-pink {
+    text-shadow: 0 0 8px #ff69b4, 0 0 20px rgba(255, 105, 180, 0.33);
+  }
+  .glow-orange {
+    text-shadow: 0 0 8px #ff8c00, 0 0 20px rgba(255, 140, 0, 0.33);
+  }
+  .border-glow-blue {
+    box-shadow: 0 0 8px #00bfff, 0 0 20px rgba(0, 191, 255, 0.27);
+    border-color: #00bfff;
+  }
+  .border-glow-pink {
+    box-shadow: 0 0 8px #ff69b4, 0 0 20px rgba(255, 105, 180, 0.27);
+    border-color: #ff69b4;
+  }
+  .border-glow-orange {
+    box-shadow: 0 0 8px #ff8c00, 0 0 20px rgba(255, 140, 0, 0.27);
+    border-color: #ff8c00;
+  }
+}
