@@ -44,7 +44,7 @@ export function ContactLinks() {
         <Button
           key={link.label}
           variant="outline"
-          className="border-neon-blue/40 text-neon-blue hover:border-glow-blue transition-all duration-300 gap-2"
+          className="border-neon-blue/40 text-neon-blue hover:border-neon-orange hover:text-neon-orange hover:shadow-neon-orange focus-visible:border-neon-orange focus-visible:text-neon-orange focus-visible:shadow-neon-orange focus-visible:ring-neon-orange/50 transition-all duration-300 gap-2"
           asChild
         >
           <a

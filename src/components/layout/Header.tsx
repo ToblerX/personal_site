@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-card-border">
-      <div className="container mx-auto px-4 h-14 flex items-center justify-between">
+    <header className="w-full sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-card-border">
+      <div className="w-full max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link
           to="/"
           className="font-pixel text-[10px] text-neon-blue glow-blue hover:opacity-80 transition-opacity"

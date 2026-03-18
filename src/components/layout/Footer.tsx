@@ -5,8 +5,8 @@ export function Footer() {
   const { contact } = profile;
 
   return (
-    <footer className="border-t border-card-border py-6 mt-auto">
-      <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="w-full border-t border-card-border py-6 mt-auto">
+      <div className="w-full max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()}{" "}
           <span className="font-pixel text-[8px] text-neon-blue">

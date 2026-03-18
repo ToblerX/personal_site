@@ -20,6 +20,7 @@ export interface Project {
   name: string;
   tagline: string;
   description: string;
+  image?: string;
   repoUrl: string;
   liveUrl: string;
   techBadges: string[];
