@@ -86,41 +86,63 @@ export function ProjectsPage() {
                 <TechBadge key={tech} name={tech} variant="orange" />
               ))}
             </div>
-            <div className="flex gap-3 pt-2">
-              <Button
-                variant="outline"
-                className="border-neon-blue/40 text-neon-blue hover:border-glow-blue transition-all duration-300"
-                asChild
-              >
-                <a
-                  href={activeProject.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="size-4" />
-                  Repository
-                </a>
-              </Button>
-              <Button
-                variant="outline"
-                className="border-neon-pink/40 text-neon-pink hover:border-glow-pink transition-all duration-300"
-                asChild
-              >
-                <a
-                  href={activeProject.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="size-4" />
-                  Live Demo
-                </a>
-              </Button>
-            </div>
+            {activeProject.privateNote ? (
+              <div className="space-y-1.5 pt-2">
+                {activeProject.privateNote.split("\n").map((line, i) => (
+                  <p key={i} className="text-xs text-muted-foreground italic">
+                    <span className="text-neon-pink glow-pink">*</span> {line.replace(/^\*\s*/, "")}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <>
+                <div className="flex items-start gap-3 pt-2">
+                  <Button
+                    variant="outline"
+                    className="border-neon-blue/40 text-neon-blue hover:border-glow-blue transition-all duration-300"
+                    asChild
+                  >
+                    <a
+                      href={activeProject.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="size-4" />
+                      Repository
+                    </a>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="border-neon-pink/40 text-neon-pink hover:border-glow-pink transition-all duration-300"
+                    asChild
+                  >
+                    <a
+                      href={activeProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="size-4" />
+                      Live Demo
+                    </a>
+                  </Button>
+                </div>
+                {activeProject.repoNote && (
+                  <p className="text-xs text-muted-foreground italic">
+                    <span className="text-neon-pink glow-pink">*</span> {activeProject.repoNote}
+                  </p>
+                )}
+              </>
+            )}
           </section>
 
           {/* Tech Stack Accordion */}
           <section className="space-y-6">
             <TagHeading tag="TECH STACK" color="blue" />
+            {activeProject.techStackNote && (
+              <p className="text-xs text-muted-foreground italic">
+                <span className="text-neon-pink glow-pink">*</span> {activeProject.techStackNote}
+              </p>
+            )}
             <TechAccordion techStack={activeProject.techStack} />
           </section>
 

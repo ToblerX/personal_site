@@ -8,6 +8,7 @@ export interface RoadmapNode {
 export interface RoadmapPhase {
   name: string;
   nodes: RoadmapNode[];
+  completed?: boolean;
 }
 
 export interface ProjectTech {
@@ -27,6 +28,9 @@ export interface Project {
   techStack: ProjectTech[];
   roadmap: RoadmapPhase[];
   opened?: boolean;
+  repoNote?: string;
+  techStackNote?: string;
+  privateNote?: string;
 }
 
 export const projects: Project[] = [
@@ -37,6 +41,7 @@ export const projects: Project[] = [
     opened: true,
     description:
       "A full-scale management application designed for private tutors to manage their students, track progress, and automate administrative tasks. Features include an automated gradebook, gamification system, role-based profiles, and a custom registration flow.",
+    privateNote: "The repository is private as the source code is not available for sharing due to commercial plans for the project.\n* A live demo will be published once the first user feedback iteration is complete and the planned features are fully implemented.",
     repoUrl: "#",
     liveUrl: "#",
     techBadges: ["NEXT.js", "FastAPI", "PostgreSQL", "Redis"],
@@ -144,6 +149,47 @@ export const projects: Project[] = [
           },
         ],
       },
+      {
+        name: "Growth",
+        completed: false,
+        nodes: [
+          {
+            date: "Apr 2026",
+            title: "App optimization",
+            description:
+              "Applied key improvements and refinements based on early user feedback and real-world usage patterns.",
+            side: "left",
+          },
+          {
+            date: "Q2 2026",
+            title: "AI-powered homework checking",
+            description:
+              "Integrating external AI services to enable automatic homework verification and grading.",
+            side: "right",
+          },
+          {
+            date: "Q3 2026",
+            title: "Public tutor access",
+            description:
+              "Opening the platform for other tutors to register and use the tool for their own students.",
+            side: "left",
+          },
+          {
+            date: "Q3 2026",
+            title: "Tutor feedback iteration",
+            description:
+              "Gathering and applying feedback from the tutor community to improve workflows and usability.",
+            side: "right",
+          },
+          {
+            date: "Q4 2026+",
+            title: "Continuous feature development",
+            description:
+              "New features and improvements will keep coming as the platform evolves — stay tuned!",
+            side: "left",
+          },
+        ],
+      },
     ],
   },
   {
@@ -153,6 +199,7 @@ export const projects: Project[] = [
     opened: true,
     description:
       "A complete e-commerce platform built for a content creator's merchandise store. Includes product catalog, shopping cart, payment integration via Mono Acquiring, logistics via Nova Post API, and a comprehensive admin panel.",
+    privateNote: "This project is currently in development. No code, visuals, or specific insights can be shared before the official release and the commercial client's agreement.",
     repoUrl: "#",
     liveUrl: "#",
     techBadges: ["NEXT.js", "FastAPI", "Redis", "Docker"],
@@ -191,61 +238,78 @@ export const projects: Project[] = [
     roadmap: [
       {
         name: "Development",
+        completed: true,
         nodes: [
           {
             date: "Jan 2026",
             title: "Project setup & architecture",
             description:
-              "Established Clean Architecture with CQRS, set up Docker development environment.",
+              "Established Clean Architecture with CQRS, set up Docker development environment, and configured a test-driven development workflow with pytest from the start.",
             side: "left",
           },
           {
             date: "Jan 2026",
             title: "Product catalog & storefront",
             description:
-              "Built product listing, detail pages, and shopping cart with NEXT.js.",
+              "Built product listing, detail pages, and shopping cart with NEXT.js. Covered new endpoints and business logic with unit and integration tests.",
             side: "right",
           },
           {
             date: "Feb 2026",
             title: "Payment & logistics integration",
             description:
-              "Integrated Mono Acquiring for payments and Nova Post API for shipping automation.",
+              "Integrated Mono Acquiring for payments and Nova Post API for shipping automation. Wrote tests for payment flows, webhook handling, and shipping state transitions.",
             side: "left",
           },
           {
             date: "Feb 2026",
             title: "Admin panel",
             description:
-              "Developed comprehensive admin panel for CRUD operations and entity management.",
+              "Developed comprehensive admin panel for CRUD operations and entity management. Added test coverage for admin-specific permissions and data validation.",
+            side: "right",
+          },
+          {
+            date: "Mar 2026",
+            title: "Sales & promo codes",
+            description:
+              "Implemented discount engine with promo code generation, validation, and usage tracking. Tests written for edge cases including expiration, stacking rules, and rate limits.",
+            side: "left",
+          },
+          {
+            date: "Mar 2026",
+            title: "Mailing & advertising",
+            description:
+              "Built mailing system for promotional campaigns and order-related notifications via Celery async tasks and SMTP integration. Tested delivery pipelines and template rendering.",
             side: "right",
           },
         ],
       },
       {
         name: "Testing",
+        completed: false,
         nodes: [
           {
-            date: "Mar 2026",
-            title: "Payment flow testing",
+            date: "Apr 2026",
+            title: "End-to-end regression",
             description:
-              "Tested end-to-end payment processing, order confirmation, and error handling.",
+              "Ran full regression suite accumulated through TDD across all modules. Verified cross-feature interactions between payments, promo codes, and mailing.",
             side: "left",
           },
           {
-            date: "Mar 2026",
-            title: "Load testing",
+            date: "Apr 2026",
+            title: "Load & stress testing",
             description:
-              "Verified Redis caching and Celery task processing under simulated traffic.",
+              "Verified Redis caching, Celery task processing, and payment flows under simulated traffic to ensure production readiness.",
             side: "right",
           },
         ],
       },
       {
         name: "Deployment",
+        completed: false,
         nodes: [
           {
-            date: "Mar 2026",
+            date: "Apr 2026",
             title: "Production deployment",
             description:
               "Deployed to Linux server with Docker, configured Caddy, and set up monitoring.",
@@ -267,10 +331,12 @@ export const projects: Project[] = [
     name: "Edwise",
     tagline: "EdTech web application for educational institutions",
     description:
-      "A full-scale edtech platform developed within a 3-person team for educational institutions. Features organization management, administrative systems, forum with media support, real-time message translation, and AWS S3 integration.",
-    repoUrl: "#",
-    liveUrl: "#",
+      "A full-scale edtech platform developed within a 3-person team for educational institutions. Features organization management, users importing from a provided database, administrative systems, forum with media support, real-time message translation, and AWS S3 integration.",
+    repoUrl: "https://github.com/ToblerX/edwise_copy",
+    repoNote: "Original repository is private. The link leads to a copied version.",
+    liveUrl: "https://www.youtube.com/watch?v=YXmNWDW7Fx8",
     techBadges: ["FastAPI", "AWS S3", "PostgreSQL", "LibreTranslate"],
+    techStackNote: "The displayed tech stack reflects my personal contributions according to my role in the team. The full tech specification can be found in the repository.",
     techStack: [
       {
         name: "FastAPI",
@@ -365,7 +431,7 @@ export const projects: Project[] = [
             date: "Feb 2026",
             title: "Production release",
             description:
-              "Released to production with monitoring and documentation for educational partners.",
+              "Released to production with monitoring and documentation. Note: this project is solely educational and was not planned to fulfill any commercial goals — no real clients were involved.",
             side: "right",
           },
         ],
@@ -378,6 +444,7 @@ export const projects: Project[] = [
     tagline: "AI-driven API for English skill feedback using PyTorch & Anthropic",
     description:
       "An AI-powered API that provides concise feedback on productive English skills. Features essay analysis from submitted text photos via Google Cloud OCR and speech analysis from voice recordings for real-time performance evaluation.",
+    privateNote: "This project is currently fully private due to future plans for personal use.",
     repoUrl: "#",
     liveUrl: "#",
     techBadges: ["Python", "PyTorch", "Anthropic API", "Google Cloud"],
@@ -385,7 +452,7 @@ export const projects: Project[] = [
       {
         name: "PyTorch",
         description:
-          "Built NLP models for analyzing English text quality, grammar patterns, and providing structured feedback scores.",
+          "Used PyTorch to fine-tune, test, and compare external NLP models for analyzing English text quality, grammar patterns, and structured feedback scoring.",
       },
       {
         name: "Anthropic API",
@@ -449,7 +516,7 @@ export const projects: Project[] = [
             date: "May 2025",
             title: "API deployment",
             description:
-              "Deployed the API and configured cloud service connections for production use.",
+              "Deployed the API and configured cloud service connections. Currently only open for personal use.",
             side: "left",
           },
         ],
