@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HomePage } from "@/pages/HomePage";
-import { ProjectPage } from "@/pages/ProjectPage";
 import { ProjectsPage } from "@/pages/ProjectsPage";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 export default function App() {
   return (
@@ -14,10 +14,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/projects/:id" element={<ProjectPage />} />
           </Routes>
         </main>
         <Footer />
+        <ScrollToTop />
       </div>
     </BrowserRouter>
   );

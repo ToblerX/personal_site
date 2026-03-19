@@ -26,6 +26,7 @@ export interface Project {
   techBadges: string[];
   techStack: ProjectTech[];
   roadmap: RoadmapPhase[];
+  opened?: boolean;
 }
 
 export const projects: Project[] = [
@@ -33,6 +34,7 @@ export const projects: Project[] = [
     id: "teachapp",
     name: "Teachapp",
     tagline: "Management application for private tutors and their students",
+    opened: true,
     description:
       "A full-scale management application designed for private tutors to manage their students, track progress, and automate administrative tasks. Features include an automated gradebook, gamification system, role-based profiles, and a custom registration flow.",
     repoUrl: "#",
@@ -148,6 +150,7 @@ export const projects: Project[] = [
     id: "merchivana",
     name: "MerchIvana",
     tagline: "Full-scale e-commerce web application for a blogger's merch shop",
+    opened: true,
     description:
       "A complete e-commerce platform built for a content creator's merchandise store. Includes product catalog, shopping cart, payment integration via Mono Acquiring, logistics via Nova Post API, and a comprehensive admin panel.",
     repoUrl: "#",
