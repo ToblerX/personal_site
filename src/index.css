@@ -78,6 +78,27 @@ body {
   background: #2a2a4e;
 }
 
+/* Neon purple scrollbar */
+.scrollbar-neon-purple::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-neon-purple::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-neon-purple::-webkit-scrollbar-thumb {
+  background: var(--color-neon-purple);
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.5);
+}
+.scrollbar-neon-purple::-webkit-scrollbar-thumb:hover {
+  background: #c084fc;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.7);
+}
+.scrollbar-neon-purple {
+  scrollbar-color: var(--color-neon-purple) transparent;
+  scrollbar-width: thin;
+}
+
 /* Neon glow text utilities */
 @layer utilities {
   .glow-blue {

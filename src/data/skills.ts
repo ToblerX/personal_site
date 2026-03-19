@@ -9,28 +9,29 @@ export const mainSkills: string[] = [
   "TypeScript",
   "SQL",
   "FastAPI",
+  "Next.js",
   "React.js",
 ];
 
 export const extraCategories: SkillCategory[] = [
   {
-    label: "FRAMEWORKS",
-    skills: ["NEXT.js", "Tailwind.css", "SQLAlchemy", "PyTorch", "shadcn"],
+    label: "TECHNOLOGIES",
+    skills: ["Git", "Tailwind.css", "PyTorch", "AWS"],
     color: "pink",
   },
   {
-    label: "DATABASES",
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+    label: "DATABASE",
+    skills: ["PostgreSQL", "MySQL", "SQLite", "MSSQL", "MongoDB", "SQLAlchemy"],
     color: "orange",
   },
   {
     label: "INFRASTRUCTURE",
-    skills: ["AWS", "S3", "Google Cloud", "Docker", "Linux"],
+    skills: ["S3", "Seaweed", "Google Cloud (GCD)", "Docker", "Linux", "Redis", "Celery"],
     color: "blue",
   },
   {
-    label: "TOOLS",
-    skills: ["Git", "Celery", "pytest", "Bash", "Copilot", "Ruff"],
+    label: "RELEVANT",
+    skills: ["shadcn", "pytest", "Bash", "Copilot", "Claude Code", "Ruff", "pandas", "numpy", "matplotlib", "Caddy", "ngrok"],
     color: "orange",
   },
 ];

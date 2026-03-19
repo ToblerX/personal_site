@@ -3,6 +3,7 @@ import { profile } from "@/data/profile";
 import { TagHeading } from "@/components/TagHeading";
 import { SkillsSection } from "@/components/SkillsSection";
 import { ContactLinks } from "@/components/ContactLinks";
+import { HighlightedText } from "@/components/HighlightedText";
 import { EducationTimeline } from "@/components/EducationTimeline";
 import {
   ExpandableCardGroup,
@@ -83,7 +84,7 @@ export function HomePage() {
       {/* Hero Section + Info Cards */}
       <section className="flex flex-col md:flex-row items-start justify-center gap-8 pt-8">
         <div className="relative shrink-0 self-center md:self-stretch">
-          <div className="w-64 md:w-72 h-full max-h-[510px] rounded-xl overflow-hidden border-2 border-neon-blue border-glow-blue">
+          <div className="w-64 md:w-72 h-full max-h-[500px] rounded-xl overflow-hidden border-2 border-neon-blue border-glow-blue">
             <img
               src={profile.photo}
               alt={profile.name}
@@ -100,8 +101,8 @@ export function HomePage() {
             <p className="font-pixel text-xs text-neon-pink glow-pink">
               {"<"}{profile.role}{">"}
             </p>
-            <p className="text-muted-foreground max-w-lg leading-relaxed">
-              {profile.summary}
+            <p className="text-muted-foreground leading-relaxed max-h-[7.5rem] overflow-y-auto pr-2 scrollbar-neon-purple">
+              <HighlightedText text={profile.summary} />
             </p>
           </div>
 
