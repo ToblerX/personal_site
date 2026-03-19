@@ -158,11 +158,6 @@ export function SkillsSection() {
           ))}
         </div>
 
-        {/* Extra skills heading */}
-        <p className="font-pixel text-[8px] text-neon-purple glow-purple">
-          {"<"}EXTRA SKILLS{">"}
-        </p>
-
         {/* Category buttons — 2×2 grid */}
         <div ref={gridRef} className="grid grid-cols-2 gap-2">
           {extraCategories.map((cat) => {
