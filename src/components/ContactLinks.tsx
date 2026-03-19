@@ -59,27 +59,26 @@ export function ContactLinks() {
               type="button"
               onClick={() => setActiveIdx(idx)}
               className={cn(
-                "flex items-center justify-center gap-2 px-3 py-2 rounded-lg border-2 font-pixel text-[8px] transition-all duration-200 cursor-default",
+                "flex items-center justify-center px-3 py-2.5 rounded-lg border-2 transition-all duration-200 cursor-default",
                 isActive
                   ? "border-neon-blue border-glow-blue text-neon-blue glow-blue bg-neon-blue/5"
                   : "border-neon-purple/40 text-neon-purple hover:border-neon-purple hover:text-neon-purple"
               )}
             >
               <link.icon className="size-4" />
-              {link.label}
             </button>
           );
         })}
       </div>
 
       {/* Display area */}
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center mt-4">
         {active.external ? (
           <a
             href={active.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neon-blue text-lg md:text-xl font-medium hover:text-neon-orange transition-all duration-300 text-center break-all outline-none [text-shadow:0_0_8px_#00bfff,0_0_20px_rgba(0,191,255,0.33)] hover:[text-shadow:0_0_8px_#ff8c00,0_0_20px_rgba(255,140,0,0.33)]"
+            className="text-neon-blue text-xs sm:text-sm md:text-xl font-medium hover:text-neon-orange transition-all duration-300 text-center whitespace-nowrap outline-none [text-shadow:0_0_8px_#00bfff,0_0_20px_rgba(0,191,255,0.33)] hover:[text-shadow:0_0_8px_#ff8c00,0_0_20px_rgba(255,140,0,0.33)]"
           >
             {active.display}
           </a>
@@ -87,7 +86,7 @@ export function ContactLinks() {
           <button
             type="button"
             onClick={handleCopyEmail}
-            className="flex items-center gap-3 text-neon-blue text-lg md:text-xl font-medium hover:text-neon-orange transition-all duration-300 text-center break-all outline-none cursor-default [text-shadow:0_0_8px_#00bfff,0_0_20px_rgba(0,191,255,0.33)] hover:[text-shadow:0_0_8px_#ff8c00,0_0_20px_rgba(255,140,0,0.33)]"
+            className="flex items-center gap-3 text-neon-blue text-xs sm:text-sm md:text-xl font-medium hover:text-neon-orange transition-all duration-300 text-center whitespace-nowrap outline-none cursor-default [text-shadow:0_0_8px_#00bfff,0_0_20px_rgba(0,191,255,0.33)] hover:[text-shadow:0_0_8px_#ff8c00,0_0_20px_rgba(255,140,0,0.33)]"
           >
             {active.display}
             {copied ? (

@@ -79,7 +79,7 @@ export function HomePage() {
   ];
 
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col">
       {/* Hero Section + Info Cards */}
       <section className="flex flex-col md:flex-row items-start justify-center gap-8 pt-8">
         <div className="relative shrink-0 self-center md:self-stretch">
@@ -110,10 +110,10 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Projects Link */}
-      <section id="projects" className="flex justify-center">
-        <Link to="/projects">
-          <TagHeading tag="GO TO PROJECTS" color="pink" className="text-2xl md:text-4xl hover:opacity-80 transition-opacity" />
+      {/* Projects Link — full viewport width, vertically centered in remaining space */}
+      <section id="projects" className="py-12 relative left-1/2 right-1/2 -mx-[50vw] w-screen px-3">
+        <Link to="/projects" className="block w-full">
+          <TagHeading tag="GO TO PROJECTS" color="pink" className="text-[4.8vw] md:text-4xl hover:opacity-80 transition-opacity text-center whitespace-nowrap animate-subtle-bob" />
         </Link>
       </section>
     </div>

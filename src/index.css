@@ -228,3 +228,13 @@ body {
 .neon-bar-pink .neon-bar-wave { background: #ff69b4; }
 .neon-bar-pink .neon-bar-liquid::before,
 .neon-bar-pink .neon-bar-liquid::after { background: rgba(255, 105, 180, 0.7); }
+
+/* Subtle bobbing animation */
+@keyframes subtle-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-subtle-bob {
+  animation: subtle-bob 3s ease-in-out infinite;
+}

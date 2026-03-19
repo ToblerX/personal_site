@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, useRef, useEffect, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export interface ExpandableItem {
@@ -185,21 +185,63 @@ export function ExpandableCardGroup({
 
       {panelPosition === "below" && expandedPanel}
 
-      {/* Mobile — simple list, always expanded */}
-      <div className="md:hidden space-y-4">
+      {/* Mobile — collapsible dropdown menus */}
+      <div className="md:hidden space-y-3">
         {items.map((item) => (
-          <div
-            key={item.id}
-            className="rounded-xl border-2 border-neon-blue border-glow-blue bg-card-bg px-6 py-5"
-          >
-            <h3 className="font-pixel text-[10px] text-neon-blue glow-blue mb-4">
-              {"<"}
-              {item.title}
-              {">"}
-            </h3>
-            {item.renderExpanded()}
-          </div>
+          <MobileDropdown key={item.id} item={item} />
         ))}
+      </div>
+    </div>
+  );
+}
+
+function MobileDropdown({ item }: { item: ExpandableItem }) {
+  const [open, setOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (open && contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    } else {
+      setHeight(0);
+    }
+  }, [open]);
+
+  return (
+    <div className="rounded-xl border-2 border-neon-purple border-glow-purple bg-card-bg overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between px-5 py-4"
+      >
+        <span className={cn(
+          "font-pixel text-[10px] transition-colors duration-200",
+          open ? "text-neon-blue glow-blue" : "text-neon-purple glow-purple"
+        )}>
+          {"<"}{item.title}{">"}
+        </span>
+        <svg
+          className={cn(
+            "w-4 h-4 transition-transform duration-300",
+            open ? "text-neon-blue rotate-180" : "text-neon-purple"
+          )}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <div
+        className="transition-all duration-300 ease-in-out overflow-hidden"
+        style={{ height }}
+      >
+        <div ref={contentRef} className="px-5 pb-5">
+          {item.renderExpanded()}
+        </div>
       </div>
     </div>
   );

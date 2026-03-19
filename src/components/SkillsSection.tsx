@@ -201,7 +201,7 @@ export function SkillsSection() {
 
       {/* ── Mobile — all expanded inline ── */}
       <div className="md:hidden space-y-4">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 justify-center">
           {mainSkills.map((skill) => (
             <TechBadge key={skill} name={skill} variant="blue" />
           ))}
@@ -209,10 +209,10 @@ export function SkillsSection() {
 
         {extraCategories.map((cat) => (
           <div key={cat.label}>
-            <p className="font-pixel text-[8px] text-neon-blue glow-blue mb-2">
+            <p className="font-pixel text-[8px] text-neon-blue glow-blue mb-2 text-center">
               {"<"}{cat.label}{">"}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center">
               {cat.skills.map((skill) => (
                 <TechBadge key={skill} name={skill} variant={cat.color} />
               ))}
