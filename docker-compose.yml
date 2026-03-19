@@ -7,12 +7,7 @@ services:
       - caddy
     labels:
       caddy: yaroslav-fedorov.site
-      caddy.root: "* /srv"
-      caddy.encode: gzip zstd
-      caddy.file_server:
-      caddy.try_files: "{path} /index.html"
-      caddy.@static.path: "/assets/*"
-      caddy.header.@static.Cache-Control: "public, max-age=31536000, immutable"
+      caddy.reverse_proxy: "{{upstreams 80}}"
 
 networks:
   caddy:
