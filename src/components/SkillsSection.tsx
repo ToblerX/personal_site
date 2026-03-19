@@ -150,7 +150,7 @@ export function SkillsSection() {
   return (
     <>
       {/* ── Desktop ── */}
-      <div className="hidden md:block space-y-4">
+      <div className="hidden md:flex md:flex-col md:justify-evenly md:h-full">
         {/* Main skills — always visible */}
         <div className="flex flex-wrap gap-2">
           {mainSkills.map((skill) => (

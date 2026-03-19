@@ -109,3 +109,122 @@ body {
     border-color: #a855f7;
   }
 }
+
+/* Neon progress bar */
+.neon-bar-track {
+  position: relative;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.neon-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Wavy liquid edge at the end of fill */
+.neon-bar-wave {
+  position: absolute;
+  right: -8px;
+  top: -1px;
+  bottom: -1px;
+  width: 24px;
+  border-radius: 50%;
+  animation: liquid-wave 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes liquid-wave {
+  0%, 100% {
+    transform: translateX(0px);
+    border-radius: 40% 55% 55% 40%;
+  }
+  20% {
+    transform: translateX(3px);
+    border-radius: 45% 40% 48% 45%;
+  }
+  40% {
+    transform: translateX(-1px);
+    border-radius: 35% 55% 42% 50%;
+  }
+  60% {
+    transform: translateX(2px);
+    border-radius: 50% 38% 55% 38%;
+  }
+  80% {
+    transform: translateX(0px);
+    border-radius: 42% 52% 40% 52%;
+  }
+}
+
+/* Bubbles inside the liquid */
+.neon-bar-liquid {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.neon-bar-liquid::before,
+.neon-bar-liquid::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(1px);
+}
+
+.neon-bar-liquid::before {
+  width: 10px;
+  height: 10px;
+  right: 14px;
+  top: 3px;
+  animation: bubble-float-1 3s ease-in-out infinite;
+}
+
+.neon-bar-liquid::after {
+  width: 7px;
+  height: 7px;
+  right: 28px;
+  bottom: 3px;
+  animation: bubble-float-2 2.2s ease-in-out infinite 0.5s;
+}
+
+@keyframes bubble-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+  50% { transform: translate(-5px, 2px) scale(1.15); opacity: 0.5; }
+}
+
+@keyframes bubble-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+  50% { transform: translate(4px, -2px) scale(0.85); opacity: 0.4; }
+}
+
+/* Color variants */
+.neon-bar-blue .neon-bar-fill {
+  background: linear-gradient(90deg, #006d8f, #00bfff);
+  box-shadow: 0 0 8px #00bfff, 0 0 20px rgba(0, 191, 255, 0.4);
+}
+.neon-bar-blue .neon-bar-wave { background: #00bfff; }
+.neon-bar-blue .neon-bar-liquid::before,
+.neon-bar-blue .neon-bar-liquid::after { background: rgba(0, 191, 255, 0.7); }
+
+.neon-bar-orange .neon-bar-fill {
+  background: linear-gradient(90deg, #8f4d00, #ff8c00);
+  box-shadow: 0 0 8px #ff8c00, 0 0 20px rgba(255, 140, 0, 0.4);
+}
+.neon-bar-orange .neon-bar-wave { background: #ff8c00; }
+.neon-bar-orange .neon-bar-liquid::before,
+.neon-bar-orange .neon-bar-liquid::after { background: rgba(255, 140, 0, 0.7); }
+
+.neon-bar-pink .neon-bar-fill {
+  background: linear-gradient(90deg, #8f2a5e, #ff69b4);
+  box-shadow: 0 0 8px #ff69b4, 0 0 20px rgba(255, 105, 180, 0.4);
+}
+.neon-bar-pink .neon-bar-wave { background: #ff69b4; }
+.neon-bar-pink .neon-bar-liquid::before,
+.neon-bar-pink .neon-bar-liquid::after { background: rgba(255, 105, 180, 0.7); }

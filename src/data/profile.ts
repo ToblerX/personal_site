@@ -44,9 +44,9 @@ export const profile = {
   contact: {
     email: "fyaroslav.offers@gmail.com",
     phone: "+48 793 698 794",
-    linkedin: "https://linkedin.com/in/yaroslav-fedorov",
-    github: "https://github.com/yaroslav-fedorov",
-    instagram: "https://instagram.com/yaroslav.fedorov",
+    linkedin: "https://www.linkedin.com/in/yaroslav-fedorov-3056472b9/",
+    github: "https://github.com/ToblerX",
+    instagram: "https://www.instagram.com/yarodevs/",
   } satisfies ContactInfo,
 
   education: [

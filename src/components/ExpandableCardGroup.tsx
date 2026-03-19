@@ -102,7 +102,7 @@ export function ExpandableCardGroup({
 
       {/* Content panel */}
       {hoveredItem && (
-        <div className="rounded-b-xl border-2 border-neon-purple border-glow-purple bg-card-bg px-7 py-5">
+        <div className="rounded-b-xl border-2 border-neon-purple border-glow-purple bg-card-bg px-7 py-5 h-[220px] overflow-visible relative">
           {hoveredItem.renderExpanded()}
         </div>
       )}
