@@ -36,7 +36,7 @@ export interface TechItem {
 
 export const profile = {
   name: "Yaroslav Fedorov",
-  role: "Software Engineer",
+  role: "Fullstack Engineer",
   photo: "/nobg_retouched_squeezed.png",
   summary:
     "Fullstack Engineer with 3+ years of experience developing scalable solutions. My main specialization is backend engineering using FastAPI framework in combination with other infrastructure tools, such as Docker, PostgreSQL, Celery, Redis, AWS, Google Cloud (GCD), etc. Moreover, I possess experience in other programming fields. For example, frontend development using TypeScript/JavaScript, Next.js, React.js, Tailwind.css and other related libraries. In addition, I am keen on broadening my knowledge in other technologies as well. For instance, I have experience in usage of PyTorch, pandas, numpy, matplotlib, etc. to work with data pipelines in my projects. Furthermore, I have hands-on experience with Linux servers, Caddy and containerization tools for apps deployment. Regardless the type of job I do, I stick to the best engineering practices. During the development process, I always use Git for version control; Clean Code principles, patterns like CQRS and REST, linting for code readability and maintainability; Test-Driven Development techniques for ensuring software reliability and minimizing bugs. To sum up, technical skills are not the only thing I thrive in. My experience of working in development teams of different kinds gives me strong communication, cross-functional collaboration, effective problem-solving, and the adaptability to seamlessly integrate into any workflow.",
