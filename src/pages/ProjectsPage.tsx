@@ -6,12 +6,13 @@ import { TechBadge } from "@/components/TechBadge";
 import { TechAccordion } from "@/components/TechAccordion";
 import { Timeline } from "@/components/Timeline";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PixelInProgress } from "@/components/PixelInProgress";
 
 export function ProjectsPage() {
   const [activeProjectId, setActiveProjectId] = useState(projects[0].id);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const activeProject = projects.find((p) => p.id === activeProjectId)!;
 
   return (
@@ -29,8 +30,64 @@ export function ProjectsPage() {
 
       {/* Two-column layout */}
       <div className="flex flex-col md:flex-row gap-6">
-        {/* Left: project list */}
-        <div className="md:w-64 shrink-0 flex flex-col gap-2">
+        {/* Mobile: dropdown selector */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setDropdownOpen((o) => !o)}
+            className="w-full flex items-center justify-between px-4 py-3 rounded-lg border border-neon-pink/60 bg-neon-pink/5"
+          >
+            <div className="flex items-center gap-2">
+              <span className="font-pixel text-[10px] text-neon-pink glow-pink">
+                {activeProject.name}
+              </span>
+              {activeProject.opened && <PixelInProgress />}
+            </div>
+            <ChevronDown
+              className={cn(
+                "size-4 text-neon-pink transition-transform duration-200",
+                dropdownOpen && "rotate-180"
+              )}
+            />
+          </button>
+          {dropdownOpen && (
+            <div className="mt-2 flex flex-col gap-1.5">
+              {projects
+                .filter((p) => p.id !== activeProjectId)
+                .map((project) => (
+                  <button
+                    key={project.id}
+                    onClick={() => {
+                      setActiveProjectId(project.id);
+                      setDropdownOpen(false);
+                    }}
+                    className={cn(
+                      "w-full text-left px-4 py-2.5 rounded-lg border transition-all duration-300",
+                      project.opened
+                        ? "border-neon-orange/40 bg-neon-orange/5"
+                        : "border-card-border bg-card"
+                    )}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <span
+                        className={cn(
+                          "font-pixel text-[10px]",
+                          project.opened
+                            ? "text-neon-orange glow-orange"
+                            : "text-white"
+                        )}
+                      >
+                        {project.name}
+                      </span>
+                      {project.opened && <PixelInProgress />}
+                    </div>
+                  </button>
+                ))}
+            </div>
+          )}
+        </div>
+
+        {/* Desktop: project list sidebar */}
+        <div className="hidden md:flex md:w-64 shrink-0 flex-col gap-2">
           {projects.map((project) => {
             const isActive = project.id === activeProjectId;
             const isOpened = project.opened;
