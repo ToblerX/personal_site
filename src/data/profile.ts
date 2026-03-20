@@ -55,7 +55,7 @@ export const profile = {
       degree: "Bachelor of Computer Science",
       year: "2026",
       typeLabel: "UNIVERSITY DEGREE",
-      status: "Expected",
+      status: "Completed",
       url: "https://www.merito.pl/",
       icon: "GraduationCap",
       logo: "/wsb_logo.jpg",
